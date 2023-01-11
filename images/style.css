@@ -5,9 +5,18 @@
    border: 2px solid black;
    background: green;
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 600px;
-    width: 600px;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 1000px;
+}
+
+#score{
+    display: flex;
+}
+
+#timeLeft{
+    display:flex;
 }
 
