@@ -1,48 +1,91 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
-const canvas_width = canvas.width = 600;
-canvas_height = canvas.height = 600;
+
+let x = 20;
+let y = 20;
+let radius = 20;
 
 
-const playerImage = new Image();
-playerImage.src = 'images/shadow_dog.png';
-const spriteWidth = 575;
-const spriteHeight = 523;
-let frameX = 0;
-let frameY = 0;
-let gameFrame = 0;
-const staggerFrames = 5;
-const backgroundLayer1 = new Image();
-backgroundLayer1.src = 'images/layer-1.png';
-const backgroundLayer2 = new Image();
-backgroundLayer2.src = 'images/layer-2.png';
-const backgroundLayer3 = new Image();
-backgroundLayer3.src = 'images/layer-3.png';
-const backgroundLayer4 = new Image();
-backgroundLayer4.src = 'images/layer-4.png';
-const backgroundLayer5 = new Image();
-backgroundLayer5.src = 'images/layer-5.png';
-let x = 0;
+//Input variables
+let upPressed = false;
+let downPressed = false;
+let leftPressed = false;
+let rightPressed = false;
+
+let speed = 2;
+//Game Loop with functions
+
+function gameLoop (){
+    clearScreen();
+    inputs();
+    drawPlayer();
+    requestAnimationFrame(gameLoop);
+};
 
 
-function animate(){
-    ctx.clearRect(0, 0, canvas_width, canvas_height);
-    ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 400, 100, 100);
-    if(gameFrame % staggerFrames === 0){
-        if(frameX < 6){
-            frameX++
-        }else{
-            frameX = 0;
-        }
+function inputs (){
+  if (upPressed){
+     y = y - speed;
+  }
+  if(downPressed){
+    y = y + speed;
+  }
+  if (leftPressed){
+    x = x - speed;
+ }
+ if(rightPressed){
+   x = x + speed;
+ }
+};
+
+
+function drawPlayer(){
+    ctx.fillStyle = 'black';
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fill();
+};
+
+function clearScreen(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+};
+
+document.body.addEventListener('keydown', keyDown);
+document.body.addEventListener('keyup', keyUp);
+
+
+function keyDown (event){
+  if( event.keyCode == 40){
+      downPressed = true;
+  }
+
+  if( event.keyCode == 38){
+    upPressed = true;
+}
+if( event.keyCode == 37){
+    leftPressed = true;
+}
+
+if( event.keyCode == 39){
+  rightPressed = true;
+}
+};
+
+function keyUp(){
+    if( event.keyCode == 40){
+        downPressed = false;
     }
-    gameFrame++;
-    requestAnimationFrame(animate);
+  
+    if( event.keyCode == 38){
+      upPressed = false;
+  }
+  if( event.keyCode == 37){
+      leftPressed = false;
+  }
+  
+  if( event.keyCode == 39){
+    rightPressed = false;
+  }
 };
-animate();
 
-function backgroundLoop (){
-    ctx.drawImage(backgroundLayer4, x, 0,);
-    x--;
-    requestAnimationFrame(backgroundLoop);
-};
-backgroundLoop();
+gameLoop();
