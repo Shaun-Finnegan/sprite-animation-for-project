@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
-canvas_width = window.innerWidth;
-canvas_height = window.innerHeight;
+canvas_width = canvas.width = 600;
+canvas_height = canvas.height = 600;
 
 let x = 20;
 let y = 20;
@@ -23,12 +23,24 @@ let speed = 2;
 function gameLoop (){
     clearScreen();
     inputs();
-    //boundryCollision();
+    boundryCollision();
     ctx.drawImage(mainSprite, 0, 0, 575, 523, x, y, 50, 50);
     //drawPlayer();
     requestAnimationFrame(gameLoop);
 };
 
+
+function boundryCollision(){
+  if(x < 0){
+     x = 0;
+  }
+ if( x === 600){
+      x = 560;
+ }
+ if(y < 0){
+  y = 0;
+ }
+}
 
 
 function inputs (){
