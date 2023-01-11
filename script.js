@@ -1,9 +1,14 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
+canvas_width = window.innerWidth;
+canvas_height = window.innerHeight;
 
 let x = 20;
 let y = 20;
-let radius = 20;
+let radius = 5;
+
+const mainSprite = new Image();
+mainSprite.src = 'images/shadow_dog.png';
 
 
 //Input variables
@@ -18,9 +23,12 @@ let speed = 2;
 function gameLoop (){
     clearScreen();
     inputs();
-    drawPlayer();
+    //boundryCollision();
+    ctx.drawImage(mainSprite, 0, 0, 575, 523, x, y, 50, 50);
+    //drawPlayer();
     requestAnimationFrame(gameLoop);
 };
+
 
 
 function inputs (){
@@ -47,7 +55,7 @@ function drawPlayer(){
 };
 
 function clearScreen(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas_width, canvas_height);
 };
 
 document.body.addEventListener('keydown', keyDown);
@@ -71,7 +79,7 @@ if( event.keyCode == 39){
 }
 };
 
-function keyUp(){
+function keyUp(event){
     if( event.keyCode == 40){
         downPressed = false;
     }
