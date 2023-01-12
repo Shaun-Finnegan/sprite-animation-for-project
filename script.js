@@ -7,8 +7,15 @@ let x = 20;
 let y = 20;
 let radius = 5;
 
+enemyX = 200;
+enemyY = 200;
+
 const mainSprite = new Image();
-mainSprite.src = 'images/shadow_dog.png';
+mainSprite.src = 'images/shadow_dog.png'
+
+carrot = new Image();
+carrot.src = 'images/Safeimagekit-resized-img (11).png';
+
 
 
 //Input variables
@@ -24,8 +31,9 @@ function gameLoop (){
     clearScreen();
     inputs();
     boundryCollision();
+    enemyBoundryCol();
     ctx.drawImage(mainSprite, 0, 0, 575, 523, x, y, 80, 80);
-    //drawPlayer();
+    drawEnemy();
     requestAnimationFrame(gameLoop);
 };
 
@@ -43,7 +51,24 @@ function boundryCollision(){
  if(y >= 320){
     y = 320;
  }
+};
+
+function enemyBoundryCol (){
+  if(enemyX < 0){
+    enemyX = 0;
+    }
+if( enemyX >= 920){
+    enemyX = 920;
+   }
+ if(enemyY < 0){
+  enemyY = 0;
 }
+if(enemyY >= 320){
+   enemyY = 320;
+}
+
+};
+
 
 
 function inputs (){
@@ -68,6 +93,13 @@ function drawPlayer(){
     ctx.arc(x, y, radius, 0, Math.PI * 2);
     ctx.fill();
 };
+
+function drawEnemy(){
+  ctx.drawImage(carrot,0, 0, 100, 100, enemyX, enemyY, 60, 60);
+  enemyX++;
+  };
+
+  
 
 function clearScreen(){
     ctx.clearRect(0, 0, canvas_width, canvas_height);
