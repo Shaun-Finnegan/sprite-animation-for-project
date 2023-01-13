@@ -16,6 +16,8 @@ let enemyY = 200;
 
 
 
+
+
 const mainSprite = new Image();
 mainSprite.src = 'images/shadow_dog.png'
 
@@ -30,33 +32,21 @@ let downPressed = false;
 let leftPressed = false;
 let rightPressed = false;
 
-let speed = 2;
+let speed = 5;
+let enemySpeed = 2;
 //Game Loop with functions
-
-class Enemy{
-    constructor(){
-      this.x = 10;
-      this.y = 10;
-      this.width = 100;
-      this.height = 100;
-    }
-    update(){
-      this.x++;
-      this.y++;
-    }
-};
-
-const enemy1 = new Enemy();
 
 function gameLoop (){
     clearScreen();
     inputs();
     boundryCollision();
-    enemyCollision();
+    enemyBoundryCol();
     ctx.drawImage(mainSprite, 0, 0, 575, 523, x, y, 80, 80);
-    drawEnemy();
+    ctx.drawImage(carrot, 0, 0, 100, 100, enemyX, enemyY, 80, 80);
     requestAnimationFrame(gameLoop);
 };
+
+setInterval(randomEnemyMove, 5000);
 
   
 
@@ -77,14 +67,7 @@ function boundryCollision(){
 
 
 
-/*function enemyReverse(){
-  for(let enemyX = 920; enemyX > 0; i--){
-      enemyX--;
-  };
- */
-
-
-/*function enemyBoundryCol (){
+function enemyBoundryCol (){
   if(enemyX < 0){
     enemyX = 0;
     }
@@ -98,8 +81,7 @@ if( enemyX >= 920){
 if(enemyY >= 320){
    enemyY = 320;
 }
-
-};*/
+};
 
 
 
@@ -118,20 +100,10 @@ function inputs (){
  }
 };
 
- function enemyCollision(){
-    if(enemyX === x && EnemyY === y){
-      enemyX = Math.floor(Math.random() * 920);
-      enemyY = Math.floor(Math.random() * 320);
-    }
- };
-
-
-function drawPlayer(){
-    ctx.fillStyle = 'black';
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2);
-    ctx.fill();
-};
+function randomEnemyMove(){
+  enemyX = Math.floor(Math.random() * 920);
+  enemyY =  Math.floor(Math.random() * 320);
+}
 
 
   
