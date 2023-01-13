@@ -3,19 +3,17 @@ const ctx = canvas.getContext('2d');
 canvas_width = canvas.width = 1000;
 canvas_height = canvas.height = 400;
 
+
+const timeLeft = document.getElementById('countdown');
+timeNow = 60;
+
+
 let x = 20;
 let y = 20;
 let radius = 5;
 
 let enemyX = 1;
 let enemyY = 200;
-
-
-
-
-
-
-
 
 
 const mainSprite = new Image();
@@ -46,9 +44,16 @@ function gameLoop (){
     requestAnimationFrame(gameLoop);
 };
 
+function countDown(){
+   timeNow--;
+   timeLeft.innerHtml = timeNow;
+};
+
+setInterval(countDown, 1000);
+
 setInterval(randomEnemyMove, 5000);
 
-  
+
 
 function boundryCollision(){
   if(x < 0){
