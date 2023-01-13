@@ -33,6 +33,21 @@ let rightPressed = false;
 let speed = 2;
 //Game Loop with functions
 
+class Enemy{
+    constructor(){
+      this.x = 10;
+      this.y = 10;
+      this.width = 100;
+      this.height = 100;
+    }
+    update(){
+      this.x++;
+      this.y++;
+    }
+};
+
+const enemy1 = new Enemy();
+
 function gameLoop (){
     clearScreen();
     inputs();
@@ -118,10 +133,7 @@ function drawPlayer(){
     ctx.fill();
 };
 
-function drawEnemy(){
-  ctx.drawImage(carrot,0, 0, 100, 100, enemyX, enemyY, 60, 60);
-  
-};
+
   
 
 function clearScreen(){
