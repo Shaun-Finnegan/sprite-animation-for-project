@@ -39,19 +39,38 @@ function gameLoop (){
     inputs();
     boundryCollision();
     enemyBoundryCol();
+    wallCol();
     ctx.drawImage(mainSprite, 0, 0, 575, 523, x, y, 80, 80);
     ctx.drawImage(carrot, 0, 0, 100, 100, enemyX, enemyY, 80, 80);
+    wallOne();
+    wallTwo();
+    wallThree();
+    wallFour();
     requestAnimationFrame(gameLoop);
 };
 
-function countDown(){
-   timeNow--;
-   timeLeft.innerHtml = timeNow;
-};
 
-setInterval(countDown, 1000);
+
 
 setInterval(randomEnemyMove, 5000);
+
+function wallOne(){
+  ctx.fillRect(400, 0, 20, 150);
+};
+
+function wallTwo(){
+  ctx.fillRect(400, 300, 20 ,100);
+};
+
+function wallThree(){
+  ctx.fillRect(600, 0, 25, 50);
+};
+
+function wallFour(){
+  ctx.fillRect(800, 100, 20, 100);
+};
+
+
 
 
 
@@ -85,6 +104,21 @@ if( enemyX >= 920){
 }
 if(enemyY >= 320){
    enemyY = 320;
+}
+};
+
+function wallCol(){
+  if(x === 400 && y < 150 ){
+    x = 0;
+ }
+ if(x === 400 && y > 250 ){
+  x = 0;
+}
+if(x === 600 && y < 50 ){
+  x = 0;
+}
+if(x === 800 && y > 100 && y < 200 ){
+  x = 0;
 }
 };
 
