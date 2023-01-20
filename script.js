@@ -10,10 +10,13 @@ timeNow = 60;
 
 let x = 20;
 let y = 20;
-let radius = 5;
+let rabbitWidth = 80;
+let rabbitHeight = 80;
 
-let enemyX = 1;
-let enemyY = 200;
+let enemyX ;
+let enemyY ; 
+let enemyWidth = 80;
+let enemyHeight = 80;
 
 
 const mainSprite = new Image();
@@ -40,8 +43,10 @@ function gameLoop (){
     boundryCollision();
     enemyBoundryCol();
     wallCol();
-    ctx.drawImage(mainSprite, 0, 0, 575, 523, x, y, 80, 80);
-    ctx.drawImage(carrot, 0, 0, 100, 100, enemyX, enemyY, 80, 80);
+    mainCollision();
+    ctx.drawImage(mainSprite, 0, 0, 575, 523, x, y, rabbitWidth, rabbitHeight);
+    ctx.drawImage(carrot, 0, 0, 100, 100, enemyX, enemyY, enemyWidth, enemyHeight);
+    randomEnemyMove();
     wallOne();
     wallTwo();
     wallThree();
@@ -50,9 +55,6 @@ function gameLoop (){
 };
 
 
-
-
-setInterval(randomEnemyMove, 5000);
 
 function wallOne(){
   ctx.fillRect(400, 0, 20, 150);
@@ -122,6 +124,15 @@ if(x === 800 && y > 100 && y < 200 ){
 }
 };
 
+function mainCollision(){
+  if (x + 80 >= enemyX  && y + 80 >= enemyY &&
+     x <= enemyX + 80 &&
+     y <= enemyY + 80){
+      enemyX = 0;
+      enemyY = 0;
+  }
+}
+
 
 
 function inputs (){
@@ -140,8 +151,8 @@ function inputs (){
 };
 
 function randomEnemyMove(){
-  enemyX = Math.floor(Math.random() * 920);
-  enemyY =  Math.floor(Math.random() * 320);
+  enemyX = 500;
+  enemyY =  300;
 }
 
 
