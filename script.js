@@ -6,6 +6,9 @@ canvas_height = canvas.height = 400;
 const score = document.getElementById('score');
 let result = 0;
 
+const time = document.getElementById('time');
+let timeLeft = 60;
+
 
 let x = 20;
 let y = 20;
@@ -52,6 +55,18 @@ function gameLoop (){
     requestAnimationFrame(gameLoop);
 };
 
+
+function countDown(){
+ timeLeft--;
+ time.innerHTML = timeLeft;
+ if(timeLeft === 0){
+  clearInterval(timerDown);
+   canvas.style.backgroundColor = 'black';
+   
+ }
+};
+
+let timerDown = setInterval(countDown, 1000);
 
 
 function wallOne(){

@@ -22,3 +22,7 @@ body{
     display:flex;
 }
 
+#game-over{
+    text-align: center;
+}
+
