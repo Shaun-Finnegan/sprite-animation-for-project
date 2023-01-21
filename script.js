@@ -3,9 +3,8 @@ const ctx = canvas.getContext('2d');
 canvas_width = canvas.width = 1000;
 canvas_height = canvas.height = 400;
 
-
-const timeLeft = document.getElementById('countdown');
-timeNow = 60;
+const score = document.getElementById('score');
+let result = 0;
 
 
 let x = 20;
@@ -130,6 +129,8 @@ function mainCollision(){
     y <= enemyY + 80){
       enemyX = Math.floor(Math.random() * 920);
       enemyY = Math.floor(Math.random() * 320);
+      result++;
+      score.innerHTML = result;
     }
 
 };
