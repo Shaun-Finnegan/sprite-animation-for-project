@@ -24,5 +24,11 @@ body{
 
 #game-over{
     text-align: center;
+    display: none;
+}
+
+#you-win{
+    text-align: center;
+    display: none;
 }
 

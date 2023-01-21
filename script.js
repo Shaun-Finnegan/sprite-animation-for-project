@@ -9,6 +9,9 @@ let result = 0;
 const time = document.getElementById('time');
 let timeLeft = 60;
 
+const gameOver = document.getElementById('game-over');
+const youWin = document.getElementById('you-win');
+
 
 let x = 20;
 let y = 20;
@@ -52,6 +55,7 @@ function gameLoop (){
     wallTwo();
     wallThree();
     wallFour();
+    maxPoints();
     requestAnimationFrame(gameLoop);
 };
 
@@ -62,11 +66,20 @@ function countDown(){
  if(timeLeft === 0){
   clearInterval(timerDown);
    canvas.style.backgroundColor = 'black';
-   
- }
+   gameOver.style.display = 'block';
+  }
 };
 
 let timerDown = setInterval(countDown, 1000);
+
+function maxPoints(){
+   if(result === 20 && timeLeft > 0){
+     youWin.style.display = 'block';
+     clearInterval(timerDown);
+     canvas.style.backgroundColor = 'yellow';
+
+   }
+};
 
 
 function wallOne(){
