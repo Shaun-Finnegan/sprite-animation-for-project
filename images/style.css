@@ -5,7 +5,7 @@ body{
 
 #canvas1{
    border: 2px solid black;
-   background: green;
+   background: url('/images/Grass_01.png');
     position: absolute;
     top: 60%;
     left: 50%;
