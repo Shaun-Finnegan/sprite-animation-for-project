@@ -55,6 +55,8 @@ function gameLoop (){
     wallTwo();
     wallThree();
     wallFour();
+    wallFive();
+    wallSix();
     maxPoints();
     requestAnimationFrame(gameLoop);
 };
@@ -96,6 +98,14 @@ function wallThree(){
 
 function wallFour(){
   ctx.fillRect(800, 100, 20, 100);
+};
+
+function wallFive(){
+  ctx.fillRect(800, 300, 20, 100);
+};
+
+function wallSix(){
+  ctx.fillRect(200, 100, 20, 300);
 };
 
 
@@ -148,6 +158,13 @@ if(x === 600 && y < 50 ){
 if(x === 800 && y > 100 && y < 200 ){
   x = 0;
 }
+if(x === 800 && y < 100 ){
+  x = 0;
+}
+if(x === 800 && y < 100 && y < 200 ){
+  x = 0;
+}
+
 };
 
 function mainCollision(){
