@@ -14,12 +14,12 @@ body{
     width: 1000px;
 }
 
-#score{
-    display: flex;
+#score-container{
+  text-align: center;
 }
 
-#timeLeft{
-    display:flex;
+#time-container{
+  text-align: center;
 }
 
 #game-over{
