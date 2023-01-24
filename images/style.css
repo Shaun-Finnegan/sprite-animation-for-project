@@ -27,6 +27,29 @@ body{
     display: none;
 }
 
+.btn-container{
+  display:flex;
+  align-content:center;
+  justify-content: center;
+}
+
+#restart-button{
+  width: 100px;
+  height: 30px;
+  background-color:red;
+  border: 1px solid #000;
+  display: none;
+}
+
+#nxt-level-button{
+  width: 100px;
+  height: 30px;
+  background-color:red;
+  text-align: center;
+  border: 1px solid #000;
+  display: none;
+}
+
 #you-win{
     text-align: center;
     display: none;

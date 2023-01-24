@@ -11,6 +11,8 @@ let timeLeft = 60;
 
 const gameOver = document.getElementById('game-over');
 const youWin = document.getElementById('you-win');
+const newGame = document.getElementById('restart-button');
+const nextLevel = document.getElementById('nxt-level-button');
 
 
 let x = 20;
@@ -69,6 +71,8 @@ function countDown(){
   clearInterval(timerDown);
    canvas.style.backgroundColor = 'black';
    gameOver.style.display = 'block';
+   newGame.style.display = 'block';
+   canvas.style.display = 'none';
   }
 };
 
@@ -78,9 +82,9 @@ function maxPoints(){
    if(result === 20 && timeLeft > 0){
      youWin.style.display = 'block';
      clearInterval(timerDown);
-     canvas.style.backgroundColor = 'yellow';
-
-   }
+     canvas.style.display = 'none';
+     nextLevel.style.display = 'block';
+    }
 };
 
 
@@ -97,7 +101,7 @@ function wallThree(){
 };
 
 function wallFour(){
-  ctx.fillRect(800, 100, 20, 100);
+  ctx.fillRect(800, 100, 20, 50);
 };
 
 function wallFive(){
@@ -155,13 +159,13 @@ function wallCol(){
 if(x === 600 && y < 50 ){
   x = 0;
 }
-if(x === 800 && y > 100 && y < 200 ){
+if(x === 800 && y > 80 && y < 150 ){
   x = 0;
 }
-if(x === 800 && y < 100 ){
+if(x === 800 && y > 250 ){
   x = 0;
 }
-if(x === 800 && y < 100 && y < 200 ){
+if(x === 200 && y > 50 ){
   x = 0;
 }
 
