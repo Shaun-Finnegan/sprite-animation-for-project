@@ -1,7 +1,9 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
-canvas_width = canvas.width = 1000;
-canvas_height = canvas.height = 400;
+
+ canvas_width = canvas.width = 1000;
+ canvas_height = canvas.height = 400;
+
 
 const score = document.getElementById('score');
 let result = 0;
