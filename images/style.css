@@ -55,3 +55,27 @@ body{
     display: none;
 }
 
+.sad-rabbit-container{
+  display:flex;
+  align-content:center;
+  justify-content: center;
+}
+
+#you-lose{
+  display:none;
+  text-align: center;
+  margin-top: 20px;
+  }
+
+  .happy-rabbit-container{
+    display:flex;
+    align-content:center;
+    justify-content: center;
+  }
+
+  #you-win-rabbit{
+    display:none;
+    text-align: center;
+    margin-top: 20px;
+  }
+

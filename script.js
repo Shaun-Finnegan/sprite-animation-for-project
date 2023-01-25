@@ -13,6 +13,8 @@ const gameOver = document.getElementById('game-over');
 const youWin = document.getElementById('you-win');
 const newGame = document.getElementById('restart-button');
 const nextLevel = document.getElementById('nxt-level-button');
+const youLoseRabbit = document.getElementById('you-lose');
+const youWinRabbit = document.getElementById('you-win-rabbit');
 
 
 let x = 20;
@@ -73,6 +75,7 @@ function countDown(){
    gameOver.style.display = 'block';
    newGame.style.display = 'block';
    canvas.style.display = 'none';
+   youLoseRabbit.style.display = 'block';
   }
 };
 
@@ -84,6 +87,7 @@ function maxPoints(){
      clearInterval(timerDown);
      canvas.style.display = 'none';
      nextLevel.style.display = 'block';
+     youWinRabbit.style.display = 'block';
     }
 };
 
@@ -171,6 +175,33 @@ if(x === 200 && y > 50 ){
 
 };
 
+function enemyWallCol(){
+  if(enemyX === 400 && enemyY <= 150){
+     enemyX + 20;
+     enemyY + 10;
+  }
+  if(enemyX === 400 && enemyY >= 300){
+    enemyX + 20;
+    enemyY + 10;
+ }
+ if(enemyX === 600 && enemyY <= 50){
+  enemyX + 20;
+  enemyY + 10;
+}
+if(enemyX === 800 && enemyY <= 150){
+  enemyX + 20;
+  enemyY + 10;
+}
+if(enemyX === 800 && enemyY >= 300){
+  enemyX + 20;
+  enemyY + 10;
+}
+if(enemyX === 200 && enemyY >= 100){
+  enemyX + 20;
+  
+}
+}
+
 function mainCollision(){
   if (x + 80 >= enemyX  &&
      y + 80 >= enemyY &&
@@ -181,10 +212,7 @@ function mainCollision(){
       result++;
       score.innerHTML = result;
     }
-
 };
-
-
 
 
 function inputs (){
