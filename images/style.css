@@ -1,6 +1,6 @@
 body{
     background: blue;
- 
+  
 }
 
 
@@ -90,26 +90,42 @@ body{
   #up{
     display:none;
     text-align: center;
-    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+  
   }
   #right{
     display:none;
     text-align: center;
-    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+   
   }
   #down{
     display:none;
     text-align: center;
-    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+  
   }
   #left{
     display:none;
     text-align: center;
-    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    
   }
 
 @media screen and (max-width: 700px) {
-   #up{
+   #canvas{
+    height: 200%;
+   }
+  
+  #up{
      display:block;
    }
    #right{
