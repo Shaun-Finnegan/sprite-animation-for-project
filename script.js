@@ -17,7 +17,11 @@ const newGame = document.getElementById('restart-button');
 const nextLevel = document.getElementById('nxt-level-button');
 const youLoseRabbit = document.getElementById('you-lose');
 const youWinRabbit = document.getElementById('you-win-rabbit');
-
+const btnDisappear = document.getElementsByClassName('direction-btn-container');
+const upArrow = document.getElementById('up');
+const rightArrow = document.getElementById('right');
+const downArrow = document.getElementById('down');
+const leftArrow = document.getElementById('left');
 
 let x = 20;
 let y = 20;
@@ -78,6 +82,11 @@ function countDown(){
    newGame.style.display = 'block';
    canvas.style.display = 'none';
    youLoseRabbit.style.display = 'block';
+  upArrow.style.display = 'none';
+    rightArrow.style.display = 'none';
+    downArrow.style.display = 'none';
+    leftArrow.style.display = 'none';
+   
   }
 };
 
@@ -90,6 +99,10 @@ function maxPoints(){
      canvas.style.display = 'none';
      nextLevel.style.display = 'block';
      youWinRabbit.style.display = 'block';
+     upArrow.style.display = 'none';
+     rightArrow.style.display = 'none';
+     downArrow.style.display = 'none';
+     leftArrow.style.display = 'none';
     }
 };
 
