@@ -98,19 +98,19 @@ body{
   }
 
   #up{
-    display:none;
+    display: none;
     text-align: center;
     }
   #right{
-    display:none;
+    display: none;
     text-align: center;
     }
   #down{
-    display:none;
+    display: none;
     text-align: center;
    }
   #left{
-    display:none;
+    display: none;
     text-align: center;
   }
 
