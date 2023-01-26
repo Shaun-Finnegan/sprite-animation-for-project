@@ -18,10 +18,16 @@ const nextLevel = document.getElementById('nxt-level-button');
 const youLoseRabbit = document.getElementById('you-lose');
 const youWinRabbit = document.getElementById('you-win-rabbit');
 const btnDisappear = document.getElementsByClassName('direction-btn-container');
-const upArrow = document.getElementById('up');
+const  upArrow = document.getElementById('up');
 const rightArrow = document.getElementById('right');
 const downArrow = document.getElementById('down');
 const leftArrow = document.getElementById('left');
+
+let mobileMoveUp = false;
+let mobileMoveRight = false;
+let mobileMoveDown = false;
+let mobileMoveLeft = false;
+
 
 let x = 20;
 let y = 20;
@@ -55,6 +61,7 @@ let enemySpeed = 2;
 function gameLoop (){
     clearScreen();
     inputs();
+    mobileInputs();
     boundryCollision();
     enemyBoundryCol();
     wallCol();
@@ -246,12 +253,56 @@ function inputs (){
 };
 
 
+
 function clearScreen(){
     ctx.clearRect(0, 0, canvas_width, canvas_height);
 };
 
 document.body.addEventListener('keydown', keyDown);
 document.body.addEventListener('keyup', keyUp);
+
+
+
+
+function mobileUp(e){
+ if(e.type = 'mousedown'){
+   mobileMoveUp = true;
+ }
+};
+ function mobileRight(e){
+if(e.type = 'mousedown'){
+  mobileMoveRight = true;
+}
+ };
+ function mobileDown(e){
+if(e.type = 'mousedown'){
+    mobileMoveDown = true;
+  }
+};
+ function mobileLeft(e){
+ if(e.type = 'mousedown'){
+  mobileMoveLeft = true;
+ }
+};
+
+function mobileInputs(){
+  if(mobileMoveUp){
+    y = y - speed;
+  }
+
+  if(mobileMoveRight){
+    x = x + speed;
+  }
+  if(mobileMoveDown){
+    y = y + speed;
+  }
+
+  if(mobileMoveUp){
+    x = x - speed;
+  }
+
+};
+
 
 
 function keyDown (event){
