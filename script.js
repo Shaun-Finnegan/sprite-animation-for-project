@@ -65,6 +65,7 @@ function gameLoop (){
     boundryCollision();
     enemyBoundryCol();
     wallCol();
+    enemyWallCol();
     mainCollision();
     ctx.drawImage(mainSprite, 0, 0, 575, 523, x, y, rabbitWidth, rabbitHeight);
     ctx.drawImage(carrot, 0, 0, 100, 100, enemyX, enemyY, enemyWidth, enemyHeight);
@@ -199,27 +200,25 @@ if(x === 200 && y > 50 ){
 
 function enemyWallCol(){
   if(enemyX === 400 && enemyY <= 150){
-     enemyX + 20;
-     enemyY + 10;
+     enemyX = 350
+     
   }
   if(enemyX === 400 && enemyY >= 300){
-    enemyX + 20;
-    enemyY + 10;
+    enemyX  = 235;
+    
  }
  if(enemyX === 600 && enemyY <= 50){
-  enemyX + 20;
-  enemyY + 10;
+  enemyX = 685;
+
 }
 if(enemyX === 800 && enemyY <= 150){
-  enemyX + 20;
-  enemyY + 10;
+  enemyX = 900;
 }
 if(enemyX === 800 && enemyY >= 300){
-  enemyX + 20;
-  enemyY + 10;
+  enemyX = 620;
 }
 if(enemyX === 200 && enemyY >= 100){
-  enemyX + 20;
+  enemyX = 485;
   
 }
 }
