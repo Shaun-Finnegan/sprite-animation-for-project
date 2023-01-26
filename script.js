@@ -260,29 +260,66 @@ function clearScreen(){
 
 document.body.addEventListener('keydown', keyDown);
 document.body.addEventListener('keyup', keyUp);
+upArrow.addEventListener('mousedown', mobileUpMouseDown);
+rightArrow.addEventListener('mousedown', mobileRightMouseDown);
+downArrow.addEventListener('mousedown', mobileDownMouseDown);
+leftArrow.addEventListener('mousedown', mobileLeftMouseDown);
+upArrow.addEventListener('mouseup', mobileUpMouseUp);
+rightArrow.addEventListener('mouseup', mobileRightMouseUp);
+downArrow.addEventListener('mouseup', mobileDownMouseUp);
+leftArrow.addEventListener('mouseup', mobileLeftMouseUp);
 
 
 
 
-function mobileUp(e){
- if(e.type = 'mousedown'){
+function mobileUpMouseDown(e){
+ if(e.type === 'mousedown'){
    mobileMoveUp = true;
- }
+   upArrow.style.backgroundColor = 'red';
+ } 
 };
- function mobileRight(e){
-if(e.type = 'mousedown'){
+function mobileRightMouseDown(e){
+if(e.type === 'mousedown'){
   mobileMoveRight = true;
+  rightArrow.style.backgroundColor = 'red';
 }
- };
- function mobileDown(e){
-if(e.type = 'mousedown'){
+};
+function mobileDownMouseDown(e){
+if(e.type === 'mousedown'){
     mobileMoveDown = true;
+    downArrow.style.backgroundColor = 'red';
   }
 };
- function mobileLeft(e){
- if(e.type = 'mousedown'){
+function mobileLeftMouseDown(e){
+ if(e.type === 'mousedown'){
   mobileMoveLeft = true;
+  leftArrow.style.backgroundColor = 'red';
  }
+};
+
+function mobileUpMouseUp(e){
+  if(e.type === 'mouseup'){
+   mobileMoveUp =  false;
+   upArrow.style.backgroundColor = 'white';
+  }
+};
+function mobileRightMouseUp(e){
+  if(e.type === 'mouseup'){
+   mobileMoveRight = false;
+   rightArrow.style.backgroundColor = 'white';
+  }
+};
+function mobileDownMouseUp(e){
+  if(e.type === 'mouseup'){
+   mobileMoveDown = false;
+   downArrow.style.backgroundColor = 'white';
+  }
+};
+function mobileLeftMouseUp(e){
+  if(e.type === 'mouseup'){
+   mobileMoveLeft = false;
+   leftArrow.style.backgroundColor = 'white';
+  }
 };
 
 function mobileInputs(){
@@ -297,12 +334,10 @@ function mobileInputs(){
     y = y + speed;
   }
 
-  if(mobileMoveUp){
-    x = x - speed;
+  if(mobileMoveLeft){
+    x = x - speed;;
   }
-
 };
-
 
 
 function keyDown (event){
